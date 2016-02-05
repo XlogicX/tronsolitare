@@ -1,4 +1,4 @@
-![alt tag](https://raw.github.com/Xlogicx/tronsolitare/pictures/tronsolitare01.png)
+![alt tag](https://raw.github.com/XlogicX/tronsolitare/tree/master/pictures/tronsolitare01.png)
 
 # About:
 TronSolitare is a 512-byte boot sector OS that is actually a game. This was heavily inspired by this project: https://github.com/Shikhin/tetranglix. I blatantly borrowed some programming techniques that they used. I originally found out about this project from issue 0x03 of PoC||GTFO. Even though this game is only 512 bytes, I took more time play-testing this game to make sure it was actually fun and challanging than I did programming it. Most of this play-testing went into tweeking the scoring system for maxfun. This game can be addicting when you start to understand the scoring system and know how close you got to winning (but didn't win).
