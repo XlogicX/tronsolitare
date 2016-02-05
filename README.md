@@ -35,20 +35,20 @@ There are 4 speeds in this game. The speed progressively speeds up after the sco
 
 # Stragegy:
 DO NOT READ IF YOU WANT TO FIGURE OUT YOUR OWN STRATEGY
-In nibbles, the easiest strategy to fill the entire screen is to start from the top and zig-zag all the way down, leaving some clearance to the right or left to be able to go back up and repeat. You are bound to collect the items along the way eventually. Repeat this enough times and you fill the screen.
-This is not a winning strategy with TronSolitare. To win this game, you need to score a certain amount; and the score provided by merely filling the screen is much to low. The one-time bonuses help boost the score, but more importantly, they also progressively increase the points you get for each movement of the green streak.
-Because of this progressive scoring, I like to think of this like an investment, and the earlier you get in on it, the better. This means that it is best to collect a lot of bonus items in the beggining, even at the cost of making the screen a little messy. Once you have collected enough bonus items and the game is still moving slow enough, try to fill in some of the areas that wont be as easy to do once it speeds up.
-Hopefully by the time your score is high and your streak is moving lighting fast, you still saved yourself a fairly open area somewhere that you can zig-zag around in with no regard.
-A note on penalty/trap items. You generally want to avoid these becuase they decrease your score by quite a bit, although they don't hurt the progressive scoring. My only excpetion to this is in the end when the game is moving at lightning speed. It is not worth it to avoid them; the cost of making the small space on the board that is left messy is too high. If you 'invested' well in the begginning, the progressive score per move should be so high that these penalties are virtually negligable.
+In nibbles, the easiest strategy to fill the entire screen is to start from the top and zig-zag all the way down, leaving some clearance to the right or left to be able to go back up and repeat. You are bound to collect the items along the way eventually. Repeat this enough times and you fill the screen.<br>
+This is not a winning strategy with TronSolitare. To win this game, you need to score a certain amount; and the score provided by merely filling the screen is much to low. The one-time bonuses help boost the score, but more importantly, they also progressively increase the points you get for each movement of the green streak.<br>
+Because of this progressive scoring, I like to think of this like an investment, and the earlier you get in on it, the better. This means that it is best to collect a lot of bonus items in the beggining, even at the cost of making the screen a little messy. Once you have collected enough bonus items and the game is still moving slow enough, try to fill in some of the areas that wont be as easy to do once it speeds up.<br>
+Hopefully by the time your score is high and your streak is moving lighting fast, you still saved yourself a fairly open area somewhere that you can zig-zag around in with no regard.<br>
+A note on penalty/trap items. You generally want to avoid these becuase they decrease your score by quite a bit, although they don't hurt the progressive scoring. My only excpetion to this is in the end when the game is moving at lightning speed. It is not worth it to avoid them; the cost of making the small space on the board that is left messy is too high. If you 'invested' well in the begginning, the progressive score per move should be so high that these penalties are virtually negligable.<br>
 A miscelanious general movement strategy that I use is to hug one of the walls as soon as possible and circle around the outer area and move my way inwards, collecting bonuses that are close enough. I deviate from this a little, but it's a helpful strategy in collecting many bonuses without making large parts of the board less accecible.
 
 # Cheats:
 This is open source, so there are many quick hacks to make this a less challanging (or more) game to play. Comments in the source code with a 'hashtag' of #CHEAT are particularly vulnerable lines of code for cheating. Notable areas of pre-commented cheating are to play a slower (but still progressive speed) game, or even just a consistently slow game, change the initial socre, change the score that the game is won at, magnify the progressive score (or turn it off for a SUPER challange), or even have complete invincibility.
 
 # Technical Notes:
-Assemble source - nasm tronsolitare.asm -f bin -o tronsolitare.bin
-Run with qemu - qemu tronsolitare.bin
-Create floppy image - Uncomment last line of code: ;times (1440 * 1024) - ($ - $$)  db 0
-Run floppy image with qemu: qemu-system-i386 -fda tronsolitare.bin
-Run floppy image in VirtualBox: Create a low spec VM and set it to boot to tronsolitare as the floppy image. Either rename image file to tronsolitare.img or use: nasm tronsolitare.asm -f bin -o tronsolitare.img
-Disassemble tronsolitare.bin with objdump: objdump -D -b binary -mi386 -Maddr16,data16 tronsolitare.bin
+Assemble source - nasm tronsolitare.asm -f bin -o tronsolitare.bin<br>
+Run with qemu - qemu tronsolitare.bin<br>
+Create floppy image - Uncomment last line of code: ;times (1440 * 1024) - ($ - $$)  db 0<br>
+Run floppy image with qemu: qemu-system-i386 -fda tronsolitare.bin<br>
+Run floppy image in VirtualBox: Create a low spec VM and set it to boot to tronsolitare as the floppy image. Either rename image file to tronsolitare.img or use: nasm tronsolitare.asm -f bin -o tronsolitare.img<br>
+Disassemble tronsolitare.bin with objdump: objdump -D -b binary -mi386 -Maddr16,data16 tronsolitare.bin<br>
