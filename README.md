@@ -1,3 +1,5 @@
+#Tron Solitare:
+
 ![alt tag](https://github.com/XlogicX/tronsolitare/blob/master/pictures/tronsolitare01.png?raw=true)
 ![alt tag](https://github.com/XlogicX/tronsolitare/blob/master/pictures/tronsolitare02.png?raw=true)
 
@@ -14,15 +16,15 @@ To win this game, you need to score 62,720 points. There are several ways to gai
 The score is represented in just one character in the lower left corner. Even though there is only one character to represent the score, using all 255 code page 437 characters, and 16 different background and foreground colors, we actually have up to 65,536 unique(ish) values to display.
 
 # The Characters:
-The score initially starts with a black background and blue foreground. All of the code page 437 characters are incremented until the last character is reached. In order, these characters are:
- ☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓→←∟↔▲▼
- !"#$%&'()*+,-./0123456789:;<=>?
-@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_
-`abcdefghijklmnopqrstuvwxyz{|}~⌂
-ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒ
-áíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐
-└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀
-αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■
+The score initially starts with a black background and blue foreground. All of the code page 437 characters are incremented until the last character is reached. In order, these characters are:<br>
+ ☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓→←∟↔▲▼ <br>
+ !"#$%&'()*+,-./0123456789:;<=>? <br>
+@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_ <br>
+`abcdefghijklmnopqrstuvwxyz{|}~⌂ <br>
+ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒ <br>
+áíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐ <br>
+└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀ <br>
+αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■ <br>
 
 # The Colors:
 Once the last character is reached, the character resets to the first character and the foreground color is incremented to the next color in a list of 16 colors. Once the last foreground color is reached (white), the character and foreground color resets and the background color increments. The game is won when the player reaches a score of the first character of a white background and brown foreground. In order, the colors are:
