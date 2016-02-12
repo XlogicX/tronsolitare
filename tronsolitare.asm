@@ -292,11 +292,7 @@ random:
    ret
 
 gameover: 
-   xor di, di
-   mov cx, 80*25
-   mov ax, 0x4f20
-   rep stosw  
-   jmp gameover
+   int 0x19 ; Reboot the system and restart the game.
 
 win:
    ;clear screen
