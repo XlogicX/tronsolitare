@@ -52,3 +52,6 @@ Create floppy image - Uncomment last line of code: ;times (1440 * 1024) - ($ - $
 Run floppy image with qemu: qemu-system-i386 -fda tronsolitare.bin<br>
 Run floppy image in VirtualBox: Create a low spec VM and set it to boot to tronsolitare as the floppy image. Either rename image file to tronsolitare.img or use: nasm tronsolitare.asm -f bin -o tronsolitare.img<br>
 Disassemble tronsolitare.bin with objdump: objdump -D -b binary -mi386 -Maddr16,data16 tronsolitare.bin<br>
+
+#Possible Bugs:
+A friend of mine reported that none of the items would load in the screen for him. this was using qemu-system-i386. I couldnt replicate the issue, however, I mostly tested with just qemu (without -system-i386 part). This friend had zero issues with assmebling the floppu version and running in Virtual Box though.
