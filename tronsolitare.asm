@@ -164,8 +164,7 @@ gameover:
       math:
       add ax, [es:di]   ;read data at coordinate and subtract from score
 
-      cmp ax, 0xe000    ;sanity check for integer underflow
-      jbe comm_ret
+      jnb comm_ret      ;sanity check for integer underflow
 
       underflow:
          mov ax, 0x0100
