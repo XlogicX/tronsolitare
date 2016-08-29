@@ -1,6 +1,8 @@
 #Tron Solitare:
 
-![alt tag](https://github.com/XlogicX/tronsolitare/blob/master/pictures/tronsolitare01.png?raw=true)
+New Scoring System (and in Qemu)
+![alt tag](https://github.com/XlogicX/tronsolitare/blob/master/pictures/tron.png?raw=true)
+<br><br>Old Scoring System (and in VirtualBox)
 ![alt tag](https://github.com/XlogicX/tronsolitare/blob/master/pictures/tronsolitare02.png?raw=true)
 
 # About:
