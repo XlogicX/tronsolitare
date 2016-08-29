@@ -4,34 +4,19 @@
 ![alt tag](https://github.com/XlogicX/tronsolitare/blob/master/pictures/tronsolitare02.png?raw=true)
 
 # About:
-TronSolitare is a 512-byte boot sector OS that is actually a game. This was heavily inspired by this project: https://github.com/Shikhin/tetranglix. I blatantly borrowed some programming techniques that they used. I originally found out about this project from issue 0x03 of PoC||GTFO. Even though this game is only 512 bytes, I took more time play-testing this game to make sure it was actually fun and challanging than I did programming it. Most of this play-testing went into tweeking the scoring system for maxfun. This game can be addicting when you start to understand the scoring system and know how close you got to winning (but didn't win).
+TronSolitare is a 512-byte boot sector OS that is actually a game. This was heavily inspired by this project: https://github.com/Shikhin/tetranglix. I blatantly borrowed some programming techniques that they used. I originally found out about this project from issue 0x03 of PoC||GTFO. Even though this game is only 512 bytes, I took more time play-testing this game to make sure it was actually fun and challanging than I did programming it. Most of this play-testing went into tweeking the scoring system for maxfun. At this point, a very signifigant portion of the code base has also been written by https://github.com/peterferrie as well. This game can be addicting when you start to understand the scoring system and know how close you got to winning (but didn't win).
 
 # Gameplay:
-Move the gamepeice around as long as you can while collecting bonuses and avoidng the wall, your own streak, and trap items. You win when the score is high enough. This game looks a little bit like nibbles/snake and a little bit like Tron. Unlike nibbles, the tail of the 'snake' does not follow you; every move perpetually stays on the screen. This is more of a game of strategy than action; the streak will actually pause on each item (bonus or trap) waiting for your next move. Deciding when to get or wait for bonuses and even whether to head right into a trap can be a fluid decision due to the complex and progressive scoring system.
+Move the gamepeice around as long as you can while collecting bonuses and avoidng the wall, your own streak, and trap items. You win when the score is high enough. This game looks a little bit like nibbles/snake and a little bit like Tron. Unlike nibbles, the tail of the 'snake' does not follow you; every move perpetually stays on the screen. This is a game of strategy and action. Deciding when to get or wait for bonuses and even whether to head right into a trap can be a fluid decision due to the complex and progressive scoring system.
 
 # Scoring:
-To win this game, you need to score 62,720 points. There are several ways to gain (and lose) points. In the begginning, every move your streak makes gains you only 1 point. With only 1794 game squares, just filling the screen with your streak would fall very short of winning the game. For each bonus item (the light-green numbered squares) you land on, the 1 base point per move is increased by 3 points. In other words, if you are playing and have gotten 3 bonus items, you are now getting 10 points per move (1 + 3 + 3 + 3). The number in the light-green bonus item also gives you its own bonus points; take the number in the box, add 1 to it, multiply it by 256, and that's the amount of extra points given to you (as a one time bonus). In other words, landing on a light-green '7' square would net you 2,048 bonus points. The light-red squares (from 0-6) work the same, only they subtract this many points. The 'unlucky' light-red '7' square kills you to death.
+To win this game, you need to score 62,720 (0xF600) points. There are several ways to gain (and lose) points. In the begginning, every move your streak makes gains you only 1 point. With only 1794 game squares, just filling the screen with your streak would fall very short of winning the game. For each bonus item (the light-green numbered squares) you land on, the 1 base point per move is increased by 3 points. In other words, if you are playing and have gotten 3 bonus items, you are now getting 10 points per move (1 + 3 + 3 + 3). The number in the light-green bonus item also gives you its own bonus points; take the number in the box, add 1 to it, multiply it by 256, and that's the amount of extra points given to you (as a one time bonus). In other words, landing on a light-green '7' square would net you 2,048 bonus points. The light-red squares (from 0-6) work the same, only they subtract this many points. The 'unlucky' light-red '7' square kills you to death.
 
 # Score Display:
-The score is represented in just one character in the lower left corner. Even though there is only one character to represent the score, using all 255 code page 437 characters, and 16 different background and foreground colors, we actually have up to 65,536 unique(ish) values to display.
-
-# The Characters:
-The score initially starts with a black background and blue foreground. All of the code page 437 characters are incremented until the last character is reached. In order, these characters are:<br>
- ☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓→←∟↔▲▼ <br>
- !"#$%&'()*+,-./0123456789:;<=>? <br>
-@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_ <br>
-`abcdefghijklmnopqrstuvwxyz{|}~⌂ <br>
-ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒ <br>
-áíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐ <br>
-└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀ <br>
-αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■ <br>
-
-# The Colors:
-Once the last character is reached, the character resets to the first character and the foreground color is incremented to the next color in a list of 16 colors. Once the last foreground color is reached (white), the character and foreground color resets and the background color increments. The game is won when the player reaches a score of the first character of a white background and brown foreground. In order, the colors are:
-Black, Blue, Green. Cyan, Red, Magenta, Brown, Light Gray, Dark Gray, Light Blue, Light Green, Light Cyan, Light Red, Light Magenta, Yellow, White.
+The score is represented as a hexidecimal value in the lower left corner (this simple design was coded by peterferrie). The old design was only one character and cycled through all code-437 characters, foreground and background colors. This new simplified version is much more intelligable than the previous versions.
 
 # Speed:
-There are 4 speeds in this game. The speed progressively speeds up after the score reaches the Red, Dark Gray, and Light Red background colors. Initially, the speed will be about 0.439 seconds per move (439.4 miliseconds). After each speedup, it will be 109.85 miliseconds less per move.
+There are 4 speeds in this game. The speed progressively speeds up after the score reaches 0x4000, 0x8000, and 0xC000. Initially, the speed will be about 0.439 seconds per move (439.4 miliseconds). After each speedup, it will be 109.85 miliseconds less per move.
 
 # Stragegy:
 DO NOT READ IF YOU WANT TO FIGURE OUT YOUR OWN STRATEGY<br><br>
@@ -54,4 +39,4 @@ Run floppy image in VirtualBox: Create a low spec VM and set it to boot to trons
 Disassemble tronsolitare.bin with objdump: objdump -D -b binary -mi386 -Maddr16,data16 tronsolitare.bin<br>
 
 #Possible Bugs:
-A friend of mine reported that none of the items would load in the screen for him. this was using qemu-system-i386. I couldnt replicate the issue, however, I mostly tested with just qemu (without -system-i386 part). This friend had zero issues with assmebling the floppu version and running in Virtual Box though.
+A friend of mine reported that none of the items would load in the screen for him. this was using qemu-system-i386. I couldnt replicate the issue, however, I mostly tested with just qemu (without -system-i386 part). This friend had zero issues with assmebling the floppy version and running in Virtual Box though.
