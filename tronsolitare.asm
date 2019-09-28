@@ -224,7 +224,7 @@ stosb
 
 random:
    ;Decide whether to place bonus/trap
-      in al,(0x40)
+      rdtsc
       and al, 0x0f
       cmp al, 0x07
       jne undo
@@ -233,7 +233,7 @@ random:
 
    ;Getting random pixel
       redo:
-      in al,(0x40)            ;random
+      rdtsc             ;random
       xor ax, dx        ;xor it up a little
       xor dx, dx        ;clear dx
       add ax, [0x046C]  ;moar randomness
@@ -255,11 +255,11 @@ random:
 
       ;Decide on item-type and value
       powerup:
-      in al,(0x40)      ;random
+      rdtsc             ;random
       and al, 0x07      ;get random 8 values
       add al, 0x31      ;baseline
       xchg cx, ax       ;cx has rand value
-      in al,(0x40)      ;random
+      rdtsc             ;random
       ;background either 'A' or 'C' (light green or red)
          and ah, 0x20      ;keep bit 13
          add ah, 0xaf      ;turn bit 14 and 12 on
